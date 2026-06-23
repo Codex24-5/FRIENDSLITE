@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>CodeX</title>
+<link rel="stylesheet" href="style.css">
+</head><body>
+
+<div class="page active" id="login"><div class="box">
+<h2>Login</h2>
+<input id="lu" placeholder="Username"><input id="lp" type="password" placeholder="Password">
+<button onclick="login()">Login</button>
+<p onclick="show('signup')">Create Account</p></div></div>
+
+<div class="page" id="signup"><div class="box">
+<h2>Sign Up</h2>
+<input id="su" placeholder="Username"><input id="sp" type="password" placeholder="Password">
+<button onclick="signup()">Create</button>
+<p onclick="show('login')">Back to Login</p></div></div>
+
+<div class="page" id="app"><div class="top">
+<div class="mode" onclick="switchMode()" id="modeBtn">💬</div>
+<b id="title">Messages</b><button class="logout" onclick="logout()">Logout</button></div>
+
+<div id="chat" class="section">
+<div class="users" id="userList"></div>
+<div class="chat" id="chatBox"></div>
+<div class="input"><input id="msgInput" placeholder="Message..." onkeydown="if(event.key=='Enter')sendMsg()">
+<button onclick="sendMsg()">➤</button></div></div>
+
+<div id="feed" class="section" style="display:none">
+<div class="feed" id="feedBox"></div>
+<div class="postInput">
+<img id="imgPreview" class="preview">
+<div class="row">
+<input id="postInput" placeholder="What's on your mind?">
+<label for="imgFile" class="iconBtn">🖼️</label><input type="file" id="imgFile" accept="image/*">
+<button onclick="post()">📝</button></div></div></div>
+
+<div id="reels" class="section" style="display:none">
+<div class="reels" id="reelsBox"></div>
+<div class="postInput">
+<video id="vidPreview" class="preview" controls></video>
+<div class="row">
+<input id="reelCap" placeholder="Caption...">
+<label for="vidFile" class="iconBtn">🎥</label><input type="file" id="vidFile" accept="video/*">
+<button onclick="postReel()">Upload</button></div></div></div></div>
+
+<div class="modal" id="reportModal"><div class="box">
+<h3>Report Post</h3><select id="reason"><option>Spam</option><option>Harassment</option><option>Hate</option><option>Violence</option><option>Other</option></select>
+<button onclick="report()">Submit</button><button class="muted" onclick="reportModal.classList.remove('active')">Cancel</button></div></div>
+
+<div class="modal" id="shareModal"><div class="box">
+<h3>Share to Friend</h3><div id="shareList"></div>
+<button class="muted" onclick="shareModal.classList.remove('active')">Cancel</button></div></div>
+
+<script src="app.js"></script></body></html>

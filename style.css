@@ -1,0 +1,59 @@
+:root{--bg:#0f172a;--card:#1e293b;--txt:#f1f5f9;--muted:#94a3b8;--a:#3b82f6;--d:#ef4444}
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
+body{background:var(--bg);color:var(--txt);height:100dvh;display:flex;justify-content:center;overflow:hidden}
+.page{display:none;width:100%;max-width:480px;height:100dvh;flex-direction:column}
+.page.active{display:flex}
+.box{padding:28px;background:var(--card);border-radius:20px;margin:auto;width:92%;max-width:380px}
+input,button,select{width:100%;padding:14px;border-radius:12px;border:1px solid #334155;background:var(--bg);color:var(--txt);margin:8px 0;font-size:16px}
+button{background:var(--a);border:0;color:#fff;font-weight:600;cursor:pointer}
+.top{padding:14px 16px;background:var(--card);display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #334155}
+.mode{font-size:24px;cursor:pointer}
+.logout{width:auto;padding:8px 14px;font-size:14px}
+.users{display:flex;gap:8px;padding:10px 12px;background:var(--card);overflow-x:auto;scrollbar-width:none;border-bottom:1px solid #334155}
+.users::-webkit-scrollbar{display:none}
+.users button{white-space:nowrap;padding:8px 14px;border-radius:20px;background:var(--bg);border:1px solid #334155;font-size:14px}
+.section{flex:1;display:flex;flex-direction:column}
+
+/* Smooth scrolling system */
+.chat,.feed{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
+.chat::-webkit-scrollbar,.feed::-webkit-scrollbar{width:6px}
+.chat::-webkit-scrollbar-thumb,.feed::-webkit-scrollbar-thumb{background:#334155;border-radius:10px}
+
+.msg{max-width:75%;padding:11px 14px;border-radius:18px;word-break:break-word;animation:slide.25s}
+@keyframes slide{0%{transform:translateY(5px);opacity:0}100%{transform:translateY(0);opacity:1}}
+.me{align-self:flex-end;background:var(--a);border-bottom-right-radius:4px}
+.other{align-self:flex-start;background:var(--card);border-bottom-left-radius:4px}
+
+.input{display:flex;padding:10px 12px;background:var(--card);gap:8px;border-top:1px solid #334155}
+.input input{flex:1;border-radius:22px;margin:0}
+.input button{width:48px;height:48px;border-radius:50%;padding:0;font-size:20px;margin:0}
+
+.post{background:var(--card);padding:14px;border-radius:16px;animation:pop.3s}
+@keyframes pop{0%{transform:scale(.95);opacity:0}100%{transform:scale(1);opacity:1}}
+.postHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.postHead b{color:var(--a);font-size:15px}
+.postImg{width:100%;border-radius:12px;margin:10px 0;max-height:400px;object-fit:cover}
+.actions{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.actions button{padding:5px 11px;font-size:13px;border-radius:16px;background:var(--bg);border:1px solid #334155;width:auto}
+
+.reels{flex:1;overflow-y:scroll;scroll-snap-type:y mandatory;background:#000;scroll-behavior:smooth}
+.reels::-webkit-scrollbar{display:none}
+.reel{height:100dvh;width:100%;position:relative;scroll-snap-align:start;display:flex;align-items:center;justify-content:center}
+.reel video{width:100%;height:100%;object-fit:cover}
+.reelInfo{position:absolute;bottom:80px;left:14px;right:60px;z-index:2}
+.reelUser{font-weight:600;margin-bottom:6px}
+.reelBtns{position:absolute;right:12px;bottom:100px;display:flex;flex-direction:column;gap:20px;align-items:center;z-index:2}
+.reelBtn{background:#0006;border:0;border-radius:50%;width:50px;height:50px;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+
+.postInput{display:flex;flex-direction:column;padding:10px 12px;background:var(--card);gap:8px;border-top:1px solid #334155}
+.row{display:flex;gap:8px}
+.iconBtn{width:48px;height:48px;border-radius:50%;background:var(--bg);border:1px solid #334155;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.preview{width:100%;border-radius:12px;margin-top:8px;max-height:200px;object-fit:cover;display:none}
+
+.modal{display:none;position:fixed;inset:0;background:#0008;align-items:center;justify-content:center;z-index:99}
+.modal.active{display:flex}
+#shareList{display:flex;flex-direction:column;gap:10px;margin-top:12px;max-height:300px;overflow-y:auto}
+.shareUser{padding:12px;background:var(--bg);border-radius:12px;cursor:pointer;display:flex;justify-content:space-between}
+p{color:var(--muted);font-size:14px;text-align:center;margin-top:12px;cursor:pointer}
+.muted{background:var(--muted)!important}
+
